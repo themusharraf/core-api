@@ -15,7 +15,7 @@ async def create_verify_code(db: DBSession, user_id: int) -> str:
     :return code:
     """
     code = generate_code()
-    expires_at = datetime.now(UTC) + timedelta(minutes=1)
+    expires_at = datetime.now(UTC) + timedelta(days=2)
     verify_code = VerifyCode(code=code, user_id=user_id, expires_at=expires_at)
     db.add(verify_code)
 
