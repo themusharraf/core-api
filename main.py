@@ -37,7 +37,7 @@ def create_app():
     )
 
     # Routers
-    # app.include_router(router)
+    app.include_router(router)
 
     return app
 

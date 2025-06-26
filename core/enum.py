@@ -8,10 +8,6 @@ class UserRole(StrEnum):
     USER = "user"
     ADMIN = "admin"
 
-    @classmethod
-    def has_value(cls, value):
-        return any(value == item for item in cls)
-
 
 class UserStatus(StrEnum):
     """
@@ -19,7 +15,3 @@ class UserStatus(StrEnum):
     """
     UNVERIFIED = "unverified"
     VERIFIED = "verified"
-
-    @classmethod
-    def has_value(cls, value):
-        return any(value == item for item in cls)
