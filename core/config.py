@@ -33,6 +33,9 @@ class Config(BaseSettings):
         env_file_encoding = "utf-8"
         extra = "allow"
 
+    @property
+    def DATABASE_URL(self) -> str:
+        return f"postgresql+asyncpg://{self.DB_USER}:{self.DB_PASS}@" f"{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
 
-settings = Config()
-settings.DATABASE_URL = f"postgresql+asyncpg://{settings.DB_USER}:{settings.DB_PASS}@{settings.DB_HOST}:{settings.DB_PORT}/{settings.DB_NAME}"
+
+settings = Config()  # type: ignore

@@ -26,7 +26,7 @@ async def _delete_old_unverified_users():
     async with async_session_maker() as session:
         before_time = datetime.now(UTC) - timedelta(days=2)
 
-        stmt = select(User).where(User.status == UserStatus.UNVERIFIED,User.created_at <= before_time)
+        stmt = select(User).where(User.status == UserStatus.UNVERIFIED, User.created_at <= before_time)
         result = await session.execute(stmt)
         users_to_delete = result.scalars().all()
 
